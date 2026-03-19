@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Note | MyApp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white shadow-xl rounded-3xl p-8 w-full max-w-md text-center">
+
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Delete Note</h2>
+
+    <p class="mb-4 text-gray-700">Are you sure you want to delete this note? This action cannot be undone.</p>
+
+    <div class="bg-gray-50 rounded-xl p-5 mb-6 text-left">
+      <p class="mb-2"><strong class="text-gray-800">Title:</strong> {{ note.title }}</p>
+      <p><strong class="text-gray-800">Content:</strong> {{ note.content }}</p>
+    </div>
+
+    <form method="POST" class="space-y-4">
+      {% csrf_token %}
+
+      <button type="submit"
+        class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-md hover:shadow-lg">
+        Delete Note
+      </button>
+    </form>
+
+    <a href="{% url 'home' %}"
+      class="mt-4 inline-block text-purple-500 font-medium hover:text-purple-700">&larr; Back to Notes</a>
+
+  </div>
+
+</body>
+
+</html>
